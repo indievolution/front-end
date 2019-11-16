@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import { Title } from './Title/Title';
 import { Menu } from './Menu/Menu';
 
-const App: React.FC = () => {
+const App: FC = () => {
+  //Used for re-navigation back to the default path on reload, to imitate games
   useEffect(() => {
     const currentUrl = window.location.href;
     for (let i = currentUrl.length - 1; i > 0; i--) {
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       }
     }
   });
+
   return (
     <div className="App">
       <HashRouter>
